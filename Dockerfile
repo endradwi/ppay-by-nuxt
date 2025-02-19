@@ -1,19 +1,14 @@
-# Use multi-stage builds to optimize the image size
-FROM node AS builder
+FROM node:lts-alpine
 
-WORKDIR /app
+WORKDIR /frontend-app
 
-COPY package.json package-lock.json ./
+COPY package*.json  .
+
+RUN npm install -g pm2
 RUN npm install
 
 COPY . . 
 
 RUN npm run build
 
-FROM node:alpine
-
-WORKDIR /app
-
-COPY --from=builder /app/.output .
-
-ENTRYPOINT ["node", "server/index.mjs"]
+ENTRYPOINT ["pm2-runtime", "ecosystem.config.cjs"]

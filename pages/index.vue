@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useSeoMeta({
-    title: 'Home Page'
+    title: 'Home'
 })
 </script>
 <template>

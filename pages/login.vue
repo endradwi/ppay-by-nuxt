@@ -18,7 +18,7 @@ function login() {
   const newData = new URLSearchParams(value);
   const nq = newData.toString();
 
-  $fetch('http://localhost:8881/auth/login', {
+  $fetch('http://localhost:8886/auth/login', {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },

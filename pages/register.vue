@@ -18,7 +18,7 @@ function register() {
   const newData = new URLSearchParams(value);
   const nq = newData.toString();
 
-  $fetch('http://localhost:8881/auth/register', {
+  $fetch('http://localhost:8886/auth/register', {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
